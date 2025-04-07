@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Boda</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <style>
+    :root {
+      --color-primary: #B9A591; /* Dorado */
+      --color-secondary: #3f3f3f; /* Gris oscuro */
+      --color-text: #706a6a; /* Gris claro */
+      --font-primary: 'Dancing Script', cursive;
+      --font-secondary: 'Playfair Display', serif;
+      color-scheme: light; /* Forzar esquema de colores claro */
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: white; /* Fondo blanco */
+      color: var(--color-secondary); /* Color de texto predeterminado */
+    }
+
+    .titulo-2, .titulo-3, .titulo-4, .titulo-3-21sep {
+      color: dimgray;
+      margin-bottom: 20px;
+    }
+
+    .titulo-2 {
+      font-size: 1.2rem;
+      font-family: cursive;
+    }
+
+    .titulo-3, .titulo-4 {
+      font-size: 2.2rem;
+      font-family: system-ui;
+    }
+
+    .titulo-3-21sep {
+      font-family: var(--font-primary);
+      font-size: 2rem !important;
+      color: var(--color-primary);
+    }
+
+    .Hashtag-2 {
+      color: grey;
+      font-size: 1.3rem;
+    }
+
+    .H2-FINAL {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .P-FINAL {
+      font-size: 1rem;
+    }
+
+    .hero-section, .hero-section-1, .hero-section-2 {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-section-musica {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @media (orientation: portrait) {
+      .hero-section { background-image: url('vertical.jpg'); }
+      .hero-section-1 { background-image: url('vertical-2.jpg'); }
+      .hero-section-2 { background-image: url('vertical-3-2.jpg'); }
+    }
+
+    @media (orientation: landscape) {
+      .hero-section { background-image: url('horizontal.jpg'); }
+      .hero-section-1 { background-image: url('horizontal-2.jpg'); }
+      .hero-section-2 { background-image: url('horizontal-3.jpg'); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+      color: var(--color-secondary);
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      font-family: var(--font-primary);
+      font-size: 6rem;
+      font-weight: bold;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+    }
+
+    .audio-player {
+      margin-top: 20px;
+      width: 60%;
+      max-width: 300px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .audio-player::-webkit-media-controls-panel {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+
+    .letra-reproductor {
+      color: var(--color-text);
+      font-size: 1.2rem;
+      font-family: cursive;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .parents-section, .countdown-section, .vestimenta-section, .regalos-card {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .parents-section h3, .countdown-section h3, .vestimenta-section h3, .regalos-card h3 {
+      font-family: var(--font-primary);
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+
+    .parents-section p, .vestimenta-section p, .regalos-card p {
+      font-family: var(--font-secondary);
+      font-size: 1.2rem;
+      color: var(--color-secondary);
+      margin-bottom: 20px;
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .countdown-timer div {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--color-primary);
+      border-radius: 10px;
+      background-color: transparent;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .countdown-timer span {
+      display: block;
+      font-family: var(--font-secondary);
+      font-size: 2rem;
+      color: var(--color-secondary);
+    }
+
+    .countdown-timer .label {
+      font-size: 1rem;
+      color: var(--color-secondary);
+      margin-top: 5px;
+    }
+
+    .custom-button {
+      background-color: transparent;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      padding: 10px 20px;
+      font-family: var(--font-secondary);
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-button:hover {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+
+    .vestimenta-imagenes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .vestimenta-imagenes img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .regalos-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .estasinvitado{
+      font-size: 4rem !important;
+    }
+
+    .conAmor2{
+      font-size: 2.5rem !important;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 1.5rem; }
+      .hero-content h2 { font-size: 5rem; }
+      .parents-section h3, .countdown-section h3, .vestimenta-section h3, .regalos-card h3 { font-size: 2rem; }
+      .countdown-timer div { width: 80px; height: 80px; }
+      .countdown-timer span { font-size: 1.5rem; }
+      .countdown-timer .label { font-size: 0.8rem; }
+      .custom-button { font-size: 1rem; padding: 8px 16px; }
+      .vestimenta-section p, .regalos-card p { font-size: 1rem; }
+      .hashtag { font-size: 1.2rem; }
+      .vestimenta-imagenes img { max-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sección 1: Hero con imagen de fondo -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown">¡NOS CASAMOS!</h1>
+      <h2 class="animate__animated animate__fadeInUp">Isabella y Mateo</h2>
+    </div>
+  </section>
+
+  <!-- Reproductor de música -->
+  <section class="hero-section-musica" data-aos="fade-up">
+    <div class="hero-content">
+      <audio id="wedding-audio" class="audio-player" loop>
+        <source src="teamo.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
+      </audio>
+      <p class="letra-reproductor">Reproduce nuestra canciónnnnnn</p>
+    </div>
+  </section>
+
+  <!-- Sección 2: Invitación -->
+  <section class="hero-section-1" data-aos="fade-up">
+    <div class="hero-content">
+      <h2 class="estasinvitado">Estás Invitado</h2>
+      <p class="letra-reproductor">Nos embarcamos en nuestra aventura, y nuestra boda no estaría completa sin la presencia de nuestros seres queridos, así que queremos que estés allí con nosotros.</p>
+      <div class="image-container">
+        <img src="foto-novios.jpg" alt="Isabella y Mateo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Padres y Contador Regresivo -->
+  <section class="hero-section-2" data-aos="fade-up">
+    <div class="hero-content">
+      <h3 class="titulo-2">Con la bendición de Dios y nuestros padres</h3>
+      <div class="parents-section">
+        <h3>Padres de la novia</h3>
+        <p>Laura Fernández</p>
+        <p>Manuel Gómez</p>
+        <h3>Padres del novio</h3>
+        <p>Carolina Rodríguez</p>
+        <p>Ricardo Sánchez</p>
+      </div>
+      <div>
+        <h3 class="titulo-2">Nuestra boda será el viernes:</h3>
+        <h2 class="titulo-3-21sep">21 | Septiembre | 2025</h2>
+        <h3 class="titulo-2">Solo faltan:</h3>
+        <div class="countdown-timer">
+          <div>
+            <span id="days">00</span>
+            <span class="label">DÍAS</span>
+          </div>
+          <div>
+            <span id="hours">00</span>
+            <span class="label">HORAS</span>
+          </div>
+          <div>
+            <span id="minutes">00</span>
+            <span class="label">MINUTOS</span>
+          </div>
+          <div>
+            <span id="seconds">00</span>
+            <span class="label">SEGUNDOS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Lugar y Recepción -->
+  <section class="hero-section-2" data-aos="fade-up">
+    <div class="hero-content">
+      <div class="image-container">
+        <img src="anillo.png" alt="Isabella y Mateo">
+      </div>
+      <h3 class="titulo-3">NUESTRA BODA</h3>
+      <div class="parents-section">
+        <h3>Lugar</h3>
+        <p>Iglesia San Jose Obrero</p>
+        <p>Hora: 04:00 P.M. - 05:00 P.M.</p>
+        <h3>Recepción</h3>
+        <p>Hora: 07:00 P.M. - 02:00 A.M.</p>
+      </div>
+      <div>
+        <a href="https://maps.app.goo.gl/npqRJvoSjXstz4GeA" class="custom-button">VER UBICACIÓN</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 5: Vestimenta y Hashtag -->
+  <section class="hero-section-2" data-aos="fade-up">
+    <div class="hero-content">
+      <div class="vestimenta-section">
+        <div class="vestimenta-imagenes">
+          <img src="ropa.png" alt="Vestimenta para hombres">
+        </div>
+        <h3 class="titulo-4">Vestimenta</h3>
+        <p>Vestimenta formal para los hombres y vestido largo para las mujeres.</p>
+        <p>Evita el color blanco y verde en tu elección de vestimenta en honor a nuestra celebración.</p>
+        <div class="hashtag">
+          <div class="vestimenta-imagenes">
+            <img src="camara.png" alt="Vestimenta para hombres">
+          </div>
+          <p>Ayuda a que crezcan nuestros recuerdos. Publica tus fotos en redes sociales el día de la boda con nuestro hashtag:</p>
+          <p class="Hashtag-2">#BodaRodriguezFernandez</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 6: Regalos en formato card -->
+  <section class="hero-section-2" data-aos="fade-up">
+    <div class="hero-content">
+      <div class="regalos-card">
+        <div class="vestimenta-imagenes">
+          <img src="regalo.png" alt="Regalos">
+        </div>
+        <h3>Regalos</h3>
+        <p>
+          <strong>BODA MENDOZA CONSTANZA</strong><br>
+          MESA | CEMACO<br><br>
+          Apreciamos su cariño y apoyo. Pueden elegir sus regalos de nuestra lista y dejarlos en la tienda para que Cemaco pueda encargarse de su entrega.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 7: Confirmar asistencia -->
+  <section class="hero-section-2" data-aos="fade-up">
+    <div class="hero-content">
+      <div class="regalos-card">
+        <div class="vestimenta-imagenes">
+          <img src="confirmar.png" alt="Regalos">
+        </div>
+        <p>
+          <strong>Confirmar asistencia</strong><br> <br>
+          Aunque nos gustan los niños, esta será una celebración solo para adultos. <br>
+          Favor de confirmar tu presencia, más tardar el 10 de diciembre. <br> <br>
+          <p class="Hashtag-2"> Pase para una persona </p><br>
+        </p>
+        <div>
+          <a href="https://forms.gle/g2Ai9Q47rA4bAqt96" class="custom-button">CONFIRMAR ASISTENCIA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 8: DESPEDIDA -->
+  <section class="hero-section-musica" data-aos="fade-up">
+    <div class="hero-content">
+      <h2 class="estasinvitado conAmor2">Con Amor</h2>
+      <p class="letra-reproductor P-FINAL">❤️ Isabella y Mateo ❤️</p>
+    </div>
+  </section>
+
+  <!-- Script para el contador regresivo -->
+  <script>
+    const weddingDate = new Date('2025-09-21T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const timeDifference = weddingDate - now;
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Script para reproducción automática de música -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('wedding-audio');
+      
+      // Intentar reproducir automáticamente
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Si falla la reproducción automática, mostrar controles y esperar interacción
+          audio.controls = true;
+          
+          // Función para iniciar reproducción con interacción del usuario
+          function startPlayback() {
+            audio.play()
+              .then(() => {
+                // Ocultar controles después de iniciar si lo prefieres
+                // audio.controls = false;
+              })
+              .catch(e => console.log("Error al reproducir:", e));
+            
+            // Eliminar los event listeners después de la primera interacción
+            document.removeEventListener('click', startPlayback);
+            document.removeEventListener('touchstart', startPlayback);
+            document.removeEventListener('keydown', startPlayback);
+          }
+          
+          // Agregar listeners para varios tipos de interacción
+          document.addEventListener('click', startPlayback);
+          document.addEventListener('touchstart', startPlayback);
+          document.addEventListener('keydown', startPlayback);
+        });
+      }
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // Duración de la animación
+      once: true, // La animación solo se ejecuta una vez
+    });
+  </script>
+</body>
+</html>
